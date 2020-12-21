@@ -6,6 +6,7 @@
 #' @param file.type File type extension.
 #' @param dir Directory to search. This function only operates on a single directory and does not search subdirectories.
 #' @return Character string object for most recently modified file name
+#' @importFrom magrittr "%>%"
 #' @export
 
 
