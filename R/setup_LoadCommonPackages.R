@@ -1,6 +1,15 @@
 #' LoadCommon Packages
 #'
-#' Load commonly used packages
+#' Load commonly used packages:
+#' data.table
+#' ggplot2
+#' googlesheets
+#' magrittr
+#' reshape2
+#' stringr
+#' tictoc
+#' tidyverse
+#' XLConnect
 #'
 #' Function to load most commonly used packages.
 #' @export
@@ -22,7 +31,9 @@ LoadCommonPackages <- function(){
   library(reshape2)
   library(ggplot2)
   library(tictoc)
-  library(microbenchmark)
+  #library(microbenchmark)
+  library(XLConnect)
+  library(lubridate)
   #library(xlsx)
   #library(styler)
 }

@@ -7,7 +7,16 @@
 LoadCommonPackages()
 }
 \description{
-Load commonly used packages
+Load commonly used packages:
+data.table
+ggplot2
+googlesheets
+magrittr
+reshape2
+stringr
+tictoc
+tidyverse
+XLConnect
 }
 \details{
 Function to load most commonly used packages.
