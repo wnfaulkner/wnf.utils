@@ -1,7 +1,7 @@
  #' ListToTibbleObjects
  #'
  #' Converts all elements in a list to separate R objects (tibbles). Uses names of list elements to assign names to R Objects.
- #' @param list
+ #' @param list List to be split out into tibble objects
  #' @return Set of tibbles with contents of each list element.
  #' @export
 

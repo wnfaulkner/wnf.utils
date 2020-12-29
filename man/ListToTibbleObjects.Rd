@@ -6,6 +6,9 @@
 \usage{
 ListToTibbleObjects(list)
 }
+\arguments{
+\item{list}{List to be split out into tibble objects}
+}
 \value{
 Set of tibbles with contents of each list element.
 }
