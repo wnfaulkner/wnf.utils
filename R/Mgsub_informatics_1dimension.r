@@ -19,14 +19,13 @@
         stop("Pattern and replacement do not have the same length.")
       }
 	  
-	  print(cbind(pattern,replacement,num.replacements)) #print table of corresponding patterns and replacement
-
       result = x
-      num.replacements <- vector()
+      #num.replacements <- vector()
+	  #print(cbind(pattern,replacement,num.replacements)) #print table of corresponding patterns and replacement
 
       for (i in 1:n) {
         result[grep(pattern[i], x)] <- gsub(pattern[i], replacement[i], result[grep(pattern[i], x)])
-        num.replacements[i] <- length(grep(pattern[i], x))
+        #num.replacements[i] <- length(grep(pattern[i], x))
       }
 
       return(result)
