@@ -12,21 +12,26 @@
       replacement,
       x
     ){
-      n = length(pattern)
+      n <- length(pattern)
+
       if (n != length(replacement)) {
         print(pattern)
         print(replacement)
         stop("Pattern and replacement do not have the same length.")
       }
-	  
-      result = x
-      #num.replacements <- vector()
-	  #print(cbind(pattern,replacement,num.replacements)) #print table of corresponding patterns and replacement
 
       for (i in 1:n) {
-        result[grep(pattern[i], x)] <- gsub(pattern[i], replacement[i], result[grep(pattern[i], x)])
-        #num.replacements[i] <- length(grep(pattern[i], x))
+        if(x[grep(pattern[i], x)] %>% length %>% equals(0)){next()}
+
+        x[grep(pattern[i], x)] <-
+          gsub(
+            pattern[i],
+            replacement[i],
+            x[grep(pattern[i], x)]
+          )
       }
+
+      result <- x
 
       return(result)
     }

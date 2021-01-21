@@ -5,12 +5,12 @@
 \alias{ReplaceRepeatingSubstringWithSingleSubstring}
 \title{ReplaceRepeatingSubstringWithSingleSubstring}
 \usage{
-ReplaceRepeatingSubstringWithSingleSubstring(string, substring)
+ReplaceRepeatingSubstringWithSingleSubstring(substring, string)
 }
 \arguments{
-\item{string}{Character string in which substrings are to be replaced}
-
 \item{substring}{Repeated character pattern to be replaced with a single version of itself within 'string'}
+
+\item{string}{Character string in which substrings are to be replaced}
 }
 \value{
 'string' with no repeated substrings
