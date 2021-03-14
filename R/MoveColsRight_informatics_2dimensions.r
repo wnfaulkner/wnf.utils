@@ -5,8 +5,8 @@
 #' @param varnames Names of variables to be moved.
 #' @return Tibble object
 #' @export
- 
-    MoveColsLeft <- function(
+
+    MoveColsRight <- function(
       tb,
       varnames
     ){
@@ -20,6 +20,6 @@
           tb[,!(names(tb) %in% varnames)],
           tb %>% dplyr::select(varnames)
         ) %>% as_tibble()
-		
+
       return(result)
     }
