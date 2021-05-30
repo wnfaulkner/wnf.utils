@@ -48,10 +48,9 @@
           ) %>%
           unnest(new.split.var, .drop = FALSE) %>%
           .[,names(.)[names(.) != split.varname]] %>%
-          OrderDfByVar(
+          OrderTbByVar(
             tb = .,
-            order.by.varname = id.varname,
-            rev = FALSE
+            order.by.varname = id.varname
           ) %>%
           ReplaceNames(
             tb = .,

@@ -4,10 +4,10 @@
 \alias{ReplaceNames}
 \title{ReplaceNames}
 \usage{
-ReplaceNames(df, current.names, new.names)
+ReplaceNames(tb, current.names, new.names)
 }
 \arguments{
-\item{df}{Table where names will be replaced. Must be data frame or tibble.}
+\item{tb}{Table where names will be replaced. Must be data frame or tibble.}
 
 \item{current.names}{Names to be replaced. Must be a character string.}
 
