@@ -6,10 +6,10 @@
 Load all worksheets from a Google Sheet Object
 Returns TRUE if expression throws an error, FALSE otherwise.}
 \usage{
-GoogleSheetLoadAllWorksheets(gs)
+GoogleSheetLoadAllWorksheets(url)
 }
 \arguments{
-\item{gs}{Google Sheet object}
+\item{url}{Url of a Google Sheet}
 }
 \description{
 GoogleSheetLoadAllWorksheets
