@@ -25,7 +25,7 @@
       install.packages("data.table")
       install.packages("dplyr")
       install.packages('tidyr')
-      install.packages("googlesheets")
+      install.packages("googlesheets4")
       install.packages("stringr")
       install.packages('officer')
       install.packages("magrittr")
