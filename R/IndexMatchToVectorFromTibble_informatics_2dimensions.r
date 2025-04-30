@@ -41,8 +41,8 @@
             ) #strsplit(match.col, mult.replacements.separator.char) %>% unlist %>% as.vector
         }
 
-        match.col <- lookup.tb %>% select(match.varname) %>% unlist %>% as.vector
-        replacement.col <- lookup.tb %>% select(replacement.vals.varname) %>% unlist %>% as.vector
+        match.col <- lookup.tb %>% dplyr::select(all_of(match.varname)) %>% pull()
+        replacement.col <- lookup.tb %>% dplyr::select(all_of(replacement.vals.varname)) %>% pull()
         matched.vals.ls <- list()
         unmatched.vals.ls <- list()
 
