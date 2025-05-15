@@ -37,12 +37,12 @@
               df = lookup.tb,
               id.varname = replacement.vals.varname,
               split.varname = match.varname,
-              split.char = ","
+              split.char = ","``
             ) #strsplit(match.col, mult.replacements.separator.char) %>% unlist %>% as.vector
         }
 
-        match.col <- lookup.tb %>% dplyr::select(all_of(match.varname)) %>% pull()
-        replacement.col <- lookup.tb %>% dplyr::select(all_of(replacement.vals.varname)) %>% pull()
+        match.col <- lookup.tb %>% dplyr::select(all_of(match.varname)) %>% dplyr::pull()
+        replacement.col <- lookup.tb %>% dplyr::select(all_of(replacement.vals.varname)) %>% dplyr::pull()
         matched.vals.ls <- list()
         unmatched.vals.ls <- list()
 
