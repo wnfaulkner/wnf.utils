@@ -11,59 +11,59 @@
 #' @return R object
 #' @export
 
-    #Test Inputs
-      #vector = resp9.tb$pd_coaching.instruction
-      #lookup.tb = config.ans.opt.tb
-      #match.varname = "ans.text.agreement"
-      #replacement.vals.varname = "ans.text.agreement.num"
-      #mult.replacements.per.cell = TRUE
-      #mult.replacements.separator.char = ","
-      #print.matches = TRUE
+#Test Inputs
+  #vector = resp9.tb$pd_coaching.instruction
+  #lookup.tb = config.ans.opt.tb
+  #match.varname = "ans.text.agreement"
+  #replacement.vals.varname = "ans.text.agreement.num"
+  #mult.replacements.per.cell = TRUE
+  #mult.replacements.separator.char = ","
+  #print.matches = TRUE
 
-    IndexMatchToVectorFromTibble <-
-      function(
-        vector,
-        lookup.tb,
-        match.varname,
-        replacement.vals.varname,
-        mult.replacements.per.cell = c(FALSE,TRUE),
-        mult.replacements.separator.char = NULL,
-        print.matches = c(TRUE,FALSE)
-      ){
+IndexMatchToVectorFromTibble <-
+  function(
+    vector,
+    lookup.tb,
+    match.varname,
+    replacement.vals.varname,
+    mult.replacements.per.cell = c(FALSE,TRUE),
+    mult.replacements.separator.char = NULL,
+    print.matches = c(TRUE,FALSE)
+  ){
 
-        if(mult.replacements.per.cell){
-          lookup.tb <-
-            SplitColReshape.ToLong(
-              df = lookup.tb,
-              id.varname = replacement.vals.varname,
-              split.varname = match.varname,
-              split.char = ","``
-            ) #strsplit(match.col, mult.replacements.separator.char) %>% unlist %>% as.vector
-        }
+    if(mult.replacements.per.cell){
+      lookup.tb <-
+        SplitColReshape.ToLong(
+          df = lookup.tb,
+          id.varname = replacement.vals.varname,
+          split.varname = match.varname,
+          split.char = ","
+        ) #strsplit(match.col, mult.replacements.separator.char) %>% unlist %>% as.vector
+    }
 
-        match.col <- lookup.tb %>% dplyr::select(all_of(match.varname)) %>% dplyr::pull()
-        replacement.col <- lookup.tb %>% dplyr::select(all_of(replacement.vals.varname)) %>% dplyr::pull()
-        matched.vals.ls <- list()
-        unmatched.vals.ls <- list()
+    match.col <- lookup.tb %>% dplyr::select(all_of(match.varname)) %>% dplyr::pull()
+    replacement.col <- lookup.tb %>% dplyr::select(all_of(replacement.vals.varname)) %>% dplyr::pull()
+    matched.vals.ls <- list()
+    unmatched.vals.ls <- list()
 
-        for(i in 1:length(vector)){
-          if(is.na(vector[i])){next()} #Skips NAs
-          if(!any(match.col == vector[i])){
-            unmatched.vals.ls[[i]] <- vector[i]
-            warning(
-              paste("No match for '", vector[i], "' found in column '", match.varname, "'.", sep = "")
-            )
-          }else{
-            matched.vals.ls <- vector[i]
-            vector[i] <- replacement.col %>% unlist %>% .[match.col == vector[i]]
-          }
-        }
-
-        if(!missing(print.matches) && print.matches){
-          matched.vals.ls %>% unlist %>% as.vector %>% RemoveNA %>% paste(., collapse = ", ") %>%
-            paste0("Values replaced: ",.) %>% print
-          unmatched.vals.ls %>% unlist %>% as.vector %>% RemoveNA %>% paste(., collapse = ", ") %>%
-            paste0("Values not replaced: ",.) %>% print
-        }
-        return(vector)
+    for(i in 1:length(vector)){
+      if(is.na(vector[i])){next()} #Skips NAs
+      if(!any(match.col == vector[i])){
+        unmatched.vals.ls[[i]] <- vector[i]
+        warning(
+          paste("No match for '", vector[i], "' found in column '", match.varname, "'.", sep = "")
+        )
+      }else{
+        matched.vals.ls <- vector[i]
+        vector[i] <- replacement.col %>% unlist %>% .[match.col == vector[i]]
       }
+    }
+
+    if(!missing(print.matches) && print.matches){
+      matched.vals.ls %>% unlist %>% as.vector %>% RemoveNA %>% paste(., collapse = ", ") %>%
+        paste0("Values replaced: ",.) %>% print
+      unmatched.vals.ls %>% unlist %>% as.vector %>% RemoveNA %>% paste(., collapse = ", ") %>%
+        paste0("Values not replaced: ",.) %>% print
+    }
+    return(vector)
+  }
