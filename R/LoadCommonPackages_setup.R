@@ -3,13 +3,14 @@
 #' Load commonly used packages:
 #' data.table
 #' ggplot2
-#' googlesheets
+#' googlesheets4
+#' lubridate
 #' magrittr
+#' readxl
 #' reshape2
 #' stringr
 #' tictoc
 #' tidyverse
-#' XLConnect
 #'
 #' Function to load most commonly used packages.
 #' @export

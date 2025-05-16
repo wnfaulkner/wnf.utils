@@ -8,6 +8,7 @@
 #' @param mult.replacements.per.cell Logical - whether there are multiple replacements in a single element of the vector.
 #' @param mult.replacements.separator.char If mult.replacements.per.cell is TRUE, the character upon which elements are to be split before substitution.
 #' @param print.matches Logical - whether to print a table of matches.
+#' 
 #' @return R object
 #' @export
 
